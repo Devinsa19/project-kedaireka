@@ -10,5 +10,11 @@ class Book extends Model
     use HasFactory;
 
     protected $table = 'books';
-    protected $fillable = ["kode_buku", "judul_buku", "pengarang", "penerbit", "tahun_terbit"];
+    protected $fillable = ["kode_buku", "judul_buku", "pengarang", "penerbit", "tahun_terbit", "book_types_id"];
+
+    public function book_types()
+    {
+        return $this->belongsTo(BookType::class);
+    }
+
 }
