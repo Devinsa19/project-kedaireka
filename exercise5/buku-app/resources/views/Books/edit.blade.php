@@ -1,42 +1,52 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Book-App</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-            <h1>Form Edit Data Buku</h1>
+@extends('layouts.admin')
+
+@section('content')
+<div class="main-panel">        
+  <div class="content-wrapper">
+    <div class="row justify-content-md-center">
+      <div class="col-md-8 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Form Edit Data Buku</h4>
             <form action="{{ route("update", $book ->id) }}" method="post">
-                @csrf
-                <div class="mb-3">
-                    <label for="kode_buku" class="form-label">Kode Buku</label>
+              @csrf
+              <div class="form-group">
+                <label for="book_types">Genre</label>
+                    <select class="custom-select d-block w-100 form-control" id="book_types" name="book_types_id">
+                      @foreach($bookTypes as $bookType)
+                      <option value="{{ $bookType->id }}"{{ $bookType->id === $book->book_types_id ? "selected" : "" }}>{{ $bookType->genre }}</option>
+                      @endforeach
+                    </select>
+              </div>
+              <div class="form-group">
+                <label for="kode_buku" class="form-label">Kode Buku</label>
                     <input type="number" class="form-control" id="kode_buku" name="kode_buku" value="{{ $book->kode_buku }}">
-                </div>
-                <div class="mb-3">
-                    <label for="judul_buku" class="form-label">Judul Buku</label>
+              </div>
+              <div class="form-group">
+                <label for="judul_buku" class="form-label">Judul Buku</label>
                     <input type="text" class="form-control" id="judul_buku" name="judul_buku" value="{{ $book->judul_buku }}">
-                </div>
-                <div class="mb-3">
-                    <label for="pengarang" class="form-label">Pengarang</label>
+              </div>
+              <div class="form-group">
+                <label for="pengarang" class="form-label">Pengarang</label>
                     <input type="text" class="form-control" id="pengarang" name="pengarang" value="{{ $book->pengarang }}">
-                </div>
-                <div class="mb-3">
-                    <label for="penerbit" class="form-label">Penerbit</label>
+              </div>
+              <div class="form-group">
+                <label for="penerbit" class="form-label">Penerbit</label>
                     <input type="text" class="form-control" id="penerbit" name="penerbit" value="{{ $book->penerbit }}">
-                </div>
-                <div class="mb-3">
-                    <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
+              </div>
+              <div class="form-group">
+                <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
                     <input type="number" class="form-control" id="tahun_terbit" name="tahun_terbit" value="{{ $book->tahun_terbit }}">
-                </div>
-              <button class="btn btn-primary" type="submit">Edit</button>
+              </div>
+              
+              <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              <a href="/" class="btn btn-light">Cancel</a>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-    </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-  </body>
-</html>
+  </div>
+
+</div>
+@endsection

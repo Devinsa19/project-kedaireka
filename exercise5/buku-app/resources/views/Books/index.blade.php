@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +9,14 @@
   </head>
   <body>
     <div class="row">
-        <div class="col-2"></div>
+        <div class="col-2">
+            <div class="list-group">
+                <a href="/" class="list-group-item list-group-item-action active" aria-current="true">
+                  Tabel Data Buku
+                </a>
+                <a href="/book-types" class="list-group-item list-group-item-action">Tabel Genre Buku</a>
+              </div>
+        </div>
         <div class="col-8">
             <div class="card">
                 <h1 class="card-header">Tabel Data Buku</h1>
@@ -23,6 +31,7 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>No. </th>
+                            <th>Genre</th> 
                             <th>Kode Buku</th>
                             <th>Judul Buku</th>
                             <th>Pengarang</th>
@@ -33,6 +42,7 @@
                         @foreach ($books as $no => $book)
                         <tr>
                             <td>{{ $no + 1 }}</td>
+                            <td>{{ $book->genrebuku }}</td>
                             <td>{{ $book->kode_buku }}</td>
                             <td>{{ $book->judul_buku }}</td>
                             <td>{{ $book->pengarang }}</td>
@@ -50,6 +60,7 @@
                         @endforeach
                         
                     </table>
+                    {{-- {{ $books->links() }} --}}
                 </div>
               </div>
         </div>
