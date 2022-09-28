@@ -20,7 +20,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/documentation/documentation.html">
+        <a class="nav-link" href="/transaksi">
           <i class="icon-paper menu-icon"></i>
           <span class="menu-title">Transaksi</span>
         </a>
