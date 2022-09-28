@@ -11,7 +11,7 @@
     <div class="card">
     <div class="card-body py-3 d-flex justify-content-between align-items-center">
         <h4 class="card-title float-start">Tabel Transaksi</h4>
-        <a href="{{ route("createtransaksi") }}" class="btn btn-primary fa-pull-right">Tambah Faktur</a>
+        <a href="{{ route("createtransaksi") }}" class="btn btn-primary fa-pull-right">Tambah Transaksi</a>
     </div>
     <div class="card-body ">
         <div class="table-responsive">
