@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookTypeController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,10 @@ Route::get("/editgenre/{id}", [BookTypeController::class, "editgenre"])->name("e
 Route::post("/updategenre/{id}", [BookTypeController::class, "updategenre"])->name("updategenre");
 Route::delete("/destroygenre/{id}", [BookTypeController::class, "destroygenre"])->name("destroygenre");
 
+
+Route::get("/transaksi", [TransaksiController::class, "index"]);
+Route::get("/createtransaksi", [TransaksiController::class, "createtransaksi"])->name("createtransaksi");
+Route::post("/storetransaksi", [TransaksiController::class, "storetransaksi"])->name("storetransaksi");
+Route::get("/edittransaksi/{id}", [TransaksiController::class, "edittransaksi"])->name("edittransaksi");
+Route::post("/updatetransaksi/{id}", [TransaksiController::class, "updatetransaksi"])->name("updatetransaksi");
+Route::delete("/destroytransaksi/{id}", [TransaksiController::class, "destroytransaksi"])->name("destroytransaksi");
